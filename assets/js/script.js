@@ -18,9 +18,54 @@ function startGame() {
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
+}
 
-  const questions = [{
-    question: 'Which day is halloween 2022?',
+function setNextQuestion() {
+  resetState()
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+function showQuestion(question) {
+  questionElement.innerText = question.question
+  question.answers.forEach(answer => {
+    const button = document.createElement('button')
+    button.innerText = answer.text
+    button.classList.add('btn')
+    if (answer.correct) {
+      button.dataset.correct = answer.correct
+    }
+    button.addEventListener('click', selectAnswer)
+    answerButtonsElement.appendChild(button)
+  })
+}
+
+function resetState() {
+  clearStatusClass(document.body)
+  nextButton.classList.add('hide')
+  while (answerButtonsElement.firstChild) {
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+  }
+}
+
+function selectAnswer(e) {
+  const selectedButton = e.target
+  const correct = selectedButton.dataset.correct
+  setStatusClass(document.body, correct)
+  Array.from(answerButtonsElement.children).forEach(button => {
+    setStatusClass(button, button.dataset.correct)
+  })
+  startButton.style.marginTop = 'auto';
+  startButton.style.fontSize = '1.5rem';
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Game Over'
+    startButton.classList.remove('hide')
+  }
+}
+
+const questions = [{
+    question: 'When is Halloween in 2022?',
     answers: [{
         text: 'Monday, 31 October',
         correct: true
@@ -34,8 +79,8 @@ function startGame() {
         correct: false
       },
       {
-      text: 'Wednesday, 02 November',
-      correct: false
+        text: 'Wednesday, 02 November',
+        correct: false
       }
     ]
   },
@@ -118,7 +163,7 @@ function startGame() {
         correct: false
       }
     ]
-  },{
+  }, {
     question: 'Why do some people wear clothes inside out on Halloween?',
     answers: [{
         text: 'to see a witch at midnight',
@@ -137,7 +182,7 @@ function startGame() {
         correct: false
       }
     ]
-  },{
+  }, {
     question: 'What is the most commercially successful horror movie of all time?',
     answers: [{
         text: 'Paranormal Activity',
@@ -156,7 +201,7 @@ function startGame() {
         correct: true
       }
     ]
-  },{
+  }, {
     question: 'What was used before pumpkins to make jack o\'lanterns?',
     answers: [{
         text: 'Watermelon',
@@ -175,7 +220,7 @@ function startGame() {
         correct: false
       }
     ]
-  },{
+  }, {
     question: 'What does the black cat symbolize?',
     answers: [{
         text: 'Power and strength',
@@ -194,7 +239,7 @@ function startGame() {
         correct: false
       }
     ]
-  },{
+  }, {
     question: 'What is the name of the pot witches use to cook up their potions?',
     answers: [{
         text: 'Magic cooking pot',
