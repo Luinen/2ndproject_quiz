@@ -64,6 +64,20 @@ function selectAnswer(e) {
   }
 }
 
+function setStatusClass(element, correct) {
+  clearStatusClass(element)
+  if (correct) {
+    element.classList.add('correct')
+  } else {
+    element.classList.add('wrong')
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove('correct')
+  element.classList.remove('wrong')
+}
+
 const questions = [{
     question: 'When is Halloween in 2022?',
     answers: [{
