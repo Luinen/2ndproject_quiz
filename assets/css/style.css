@@ -3,3 +3,51 @@
     padding: 0;
     text-decoration: none;
 }
+
+.headdiv {
+    display: flex;
+    justify-content: space-between;
+    color: #f96e29;
+    font-size: x-large;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.pumpkin-pic {
+    border-radius: 50%;
+    width: 140px;
+    height: 160px;
+}
+
+body {
+    background-color: #680d6c;
+}
+
+section {
+    box-sizing: border-box;
+    display: flex;
+    width: 100vw;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    width: 800px;
+    height: 200px;
+    max-width: 80%;
+    background-color: #f96e29;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
