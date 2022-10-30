@@ -1,10 +1,14 @@
 const startButton = document.getElementById('start-btn');
+const highScoreButton = document.getElementById('highscore-btn');
+const scoreNumber = document.getElementById ('score');
 const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 
 let shuffledQuestions, currentQuestionIndex;
+let score = 0;
+const SCORE_POINTS = 10;
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -14,6 +18,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide')
+  highScoreButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
@@ -59,7 +64,7 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide')
   } else {
-    startButton.innerText = 'Game Over'
+    startButton.innerText = 'Restart'
     startButton.classList.remove('hide')
   }
 }
@@ -79,7 +84,7 @@ function clearStatusClass(element) {
 }
 
 const questions = [{
-    question: 'When is Halloween in 2022?',
+    question: 'Which day is Halloween in 2022?',
     answers: [{
         text: 'Monday, 31 October',
         correct: true
@@ -93,8 +98,8 @@ const questions = [{
         correct: false
       },
       {
-        text: 'Wednesday, 02 November',
-        correct: false
+      text: 'Wednesday, 02 November',
+      correct: false
       }
     ]
   },
@@ -177,7 +182,7 @@ const questions = [{
         correct: false
       }
     ]
-  }, {
+  },{
     question: 'Why do some people wear clothes inside out on Halloween?',
     answers: [{
         text: 'to see a witch at midnight',
@@ -196,7 +201,7 @@ const questions = [{
         correct: false
       }
     ]
-  }, {
+  },{
     question: 'What is the most commercially successful horror movie of all time?',
     answers: [{
         text: 'Paranormal Activity',
@@ -215,7 +220,7 @@ const questions = [{
         correct: true
       }
     ]
-  }, {
+  },{
     question: 'What was used before pumpkins to make jack o\'lanterns?',
     answers: [{
         text: 'Watermelon',
@@ -234,7 +239,7 @@ const questions = [{
         correct: false
       }
     ]
-  }, {
+  },{
     question: 'What does the black cat symbolize?',
     answers: [{
         text: 'Power and strength',
@@ -253,7 +258,7 @@ const questions = [{
         correct: false
       }
     ]
-  }, {
+  },{
     question: 'What is the name of the pot witches use to cook up their potions?',
     answers: [{
         text: 'Magic cooking pot',
