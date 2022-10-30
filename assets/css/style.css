@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  font-family: Playfair Display, sans-serif;
 }
 
 .headdiv {
@@ -15,6 +16,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 
 h2 {
@@ -35,7 +37,7 @@ body {
 section {
   box-sizing: border-box;
   display: flex;
-  width: 100vw;
+  width: 98vw;
   height: 80vh;
   justify-content: center;
   align-items: center;
@@ -44,7 +46,7 @@ section {
 
 .container {
   width: 800px;
-  height: 200px;
+  height: 220px;
   max-width: 80%;
   background-color: #f96e29;
   border-radius: 5px;
@@ -70,6 +72,12 @@ section {
 
 .btn:hover {
   border: 2px solid white;
+  cursor: pointer;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  border: none;
 }
 
 .btn.correct {
@@ -81,11 +89,28 @@ section {
   background-color: red;
 }
 
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hud-prefix {
+  text-align: center;
+  font-size: 24px;
+}
+
 .start-btn {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  padding: 10px 20px;
-  margin-top: 65px;
+  padding: 10px 68px;
+  margin-top: 40px;
+}
+
+#highscore-btn {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  margin-top: 10px;
 }
 
 .next-btn {
@@ -98,10 +123,16 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .hide {
   display: none;
+}
+
+.footdiv {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 800px) {

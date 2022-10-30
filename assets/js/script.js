@@ -124,7 +124,7 @@ const questions = [{
     ]
   },
   {
-    question: ' When was Halloween first celebrated in the United States?',
+    question: 'When was Halloween first celebrated in the United States?',
     answers: [{
         text: '1796',
         correct: false
